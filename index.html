@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Берёзовская городская общественная организация «Ветераны пограничных войск». Патриотическое воспитание молодёжи, поддержка ветеранов, общественная деятельность.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="БГОО «Ветераны пограничных войск» | г. Берёзовский">
+    <meta property="og:description" content="Берёзовская городская общественная организация «Ветераны пограничных войск». Патриотическое воспитание молодёжи, поддержка ветеранов, общественная деятельность в Кузбассе.">
+    <meta property="og:image" content="https://pr0bel1230.github.io/veteranpv-site/assets/img/logo.png">
+    <meta property="og:url" content="https://pr0bel1230.github.io/veteranpv-site/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="БГОО «Ветераны пограничных войск»">
+    <meta property="og:locale" content="ru_RU">
     <title>БГОО «Ветераны пограничных войск» | г. Берёзовский</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(XXXXX, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <!-- Header -->
@@ -113,9 +140,9 @@
                 <h2 class="cta__title">Делаем мир лучше</h2>
                 <p class="cta__text">Наша работа помогает ветеранам чувствовать свою значимость, а детям — изучать историю государства и воспитывать в себе лучшие человеческие качества. Вместе мы строим сильное и патриотичное общество.</p>
                 <div class="cta__gallery">
-                    <img src="assets/img/2hesC59pkjE_1.jpg" alt="Мероприятие" loading="lazy">
-                    <img src="assets/img/gBcoMI4nuNY.jpg" alt="Мероприятие" loading="lazy">
-                    <img src="assets/img/LBn1kRd4DE0.jpg" alt="Мероприятие" loading="lazy">
+                    <img src="assets/img/2hesC59pkjE_1.jpg" alt="Мероприятие" loading="lazy" data-lightbox>
+                    <img src="assets/img/gBcoMI4nuNY.jpg" alt="Мероприятие" loading="lazy" data-lightbox>
+                    <img src="assets/img/LBn1kRd4DE0.jpg" alt="Мероприятие" loading="lazy" data-lightbox>
                 </div>
             </div>
         </div>
@@ -196,6 +223,9 @@
                     </div>
                 </div>
             </div>
+            <div class="contacts__map">
+                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=86.1863%2C55.5898%2C86.2156%2C55.6058&amp;layer=mapnik&amp;marker=55.5978%2C86.2010" width="100%" height="350" style="border:0; border-radius:12px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Карта — г. Берёзовский"></iframe>
+            </div>
         </div>
     </section>
 
@@ -228,6 +258,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox__close">&times;</span>
+        <img class="lightbox__img" src="" alt="">
+    </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
 
     <script src="assets/js/main.js"></script>
 </body>

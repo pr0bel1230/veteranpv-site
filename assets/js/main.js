@@ -80,4 +80,49 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox?.querySelector('.lightbox__img');
+    const lightboxClose = lightbox?.querySelector('.lightbox__close');
+
+    document.querySelectorAll('[data-lightbox]').forEach(img => {
+        img.addEventListener('click', (e) => {
+            lightboxImg.src = e.target.src;
+            lightbox.classList.add('lightbox--open');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('lightbox--open');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox?.classList.contains('lightbox--open')) {
+            closeLightbox();
+        }
+    });
+
+    // Scroll to top button
+    const scrollBtn = document.getElementById('scrollTop');
+    if (scrollBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('scroll-top--visible');
+            } else {
+                scrollBtn.classList.remove('scroll-top--visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });

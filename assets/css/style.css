@@ -621,6 +621,20 @@ a {
     color: #6a96c8;
 }
 
+.contacts__map {
+    margin-top: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contacts__map iframe {
+    display: block;
+}
+
 /* ===== PAGE HERO (inner pages) ===== */
 .page-hero {
     padding: 140px 0 60px;
@@ -1073,6 +1087,96 @@ a {
 }
 
 /* ===== Animations ===== */
+/* ===== Lightbox ===== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: zoom-out;
+}
+
+.lightbox--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox__img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.lightbox__close:hover {
+    color: var(--gold);
+}
+
+/* ===== Scroll to Top ===== */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--green-dark);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.scroll-top--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 576px) {
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

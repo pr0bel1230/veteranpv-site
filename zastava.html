@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Военно-патриотический клуб «Застава» г. Берёзовский. Патриотическое воспитание молодёжи, военно-прикладная подготовка.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ВПК «Застава» | БГОО «Ветераны пограничных войск»">
+    <meta property="og:description" content="Военно-патриотический клуб «Застава» г. Берёзовский. Патриотическое воспитание молодёжи, строевая, огневая и физическая подготовка.">
+    <meta property="og:image" content="https://pr0bel1230.github.io/veteranpv-site/assets/img/logo.png">
+    <meta property="og:url" content="https://pr0bel1230.github.io/veteranpv-site/zastava.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="БГОО «Ветераны пограничных войск»">
+    <meta property="og:locale" content="ru_RU">
     <title>ВПК «Застава» | БГОО «Ветераны пограничных войск»</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(XXXXX, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <!-- Header -->
@@ -94,10 +121,10 @@
         <div class="container">
             <h2 class="section__title">Фотографии</h2>
             <div class="gallery">
-                <img src="assets/img/q1i_UjALab4.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item">
-                <img src="assets/img/kKZyrJwPseI.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item">
-                <img src="assets/img/-pU0J0mSvhk.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item">
-                <img src="assets/img/aUsCYtRfqE4.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item">
+                <img src="assets/img/q1i_UjALab4.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item" data-lightbox
+                <img src="assets/img/kKZyrJwPseI.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item" data-lightbox
+                <img src="assets/img/-pU0J0mSvhk.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item" data-lightbox
+                <img src="assets/img/aUsCYtRfqE4.jpg" alt="Мероприятие ВПК Застава" loading="lazy" class="gallery__item" data-lightbox
             </div>
         </div>
     </section>
@@ -145,6 +172,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox__close">&times;</span>
+        <img class="lightbox__img" src="" alt="">
+    </div>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 16V4M4 10l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
 
     <script src="assets/js/main.js"></script>
 </body>
