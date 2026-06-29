@@ -698,17 +698,18 @@ a {
 }
 
 .contacts__value--vk {
-    display: inline;
-    color: #4a76a8;
-}
-
-.contacts__value--vk svg {
-    vertical-align: middle;
-    margin-right: 4px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .contacts__value--vk:hover {
-    color: #6a96c8;
+    opacity: 0.85;
+}
+
+.contacts__vk-logo {
+    height: 24px;
+    width: auto;
+    display: block;
 }
 
 /* ===== PAGE HERO (inner pages) ===== */
