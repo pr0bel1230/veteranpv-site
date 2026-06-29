@@ -326,7 +326,10 @@ a {
 }
 
 .hero__scroll {
+    display: flex;
+    justify-content: center;
     padding: 12px 0 28px;
+    width: 100%;
     opacity: 0.7;
     transition: opacity 0.2s, transform 0.2s;
     animation: hero-scroll-bounce 2s ease-in-out infinite;
