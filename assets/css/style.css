@@ -108,6 +108,15 @@ a {
     border-radius: 2px;
 }
 
+.section__subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-top: -32px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
 .section__title--left {
     text-align: left;
 }
