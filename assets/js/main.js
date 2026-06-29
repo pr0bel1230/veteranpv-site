@@ -120,24 +120,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Floating tooltip — следит за курсором
+    // Floating tooltip — уплывает от быстрого движения курсора
     document.querySelectorAll('.partners__item').forEach(item => {
         let rafId = null;
+        let lastX = 0, lastY = 0;
+        let svx = 0, svy = 0; // smoothed velocity
+
+        item.addEventListener('mouseenter', () => { lastX = 0; lastY = 0; });
+
         item.addEventListener('mousemove', (e) => {
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(() => {
-                const r = item.getBoundingClientRect();
-                const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
-                const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-                item.style.setProperty('--tx', (dx * 12).toFixed(1) + 'px');
-                item.style.setProperty('--ty', (dy * 6).toFixed(1) + 'px');
-                rafId = null;
-            });
+            if (lastX === 0 && lastY === 0) { lastX = e.clientX; lastY = e.clientY; return; }
+            const dx = e.clientX - lastX;
+            const dy = e.clientY - lastY;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            // Smooth velocity — большие резкие движения дают заметный сдвиг
+            svx += (dx - svx) * 0.25;
+            svy += (dy - svy) * 0.25;
+            if (!rafId) rafId = requestAnimationFrame(tick);
         });
+
+        function tick() {
+            const tx = Math.max(-12, Math.min(12, svx * 0.7));
+            const ty = Math.max(-6, Math.min(6, svy * 0.7));
+            item.style.setProperty('--tx', tx.toFixed(1) + 'px');
+            item.style.setProperty('--ty', ty.toFixed(1) + 'px');
+            // Затухание скорости — когда курсор стоит, всё возвращается на место
+            svx *= 0.85;
+            svy *= 0.85;
+            if (Math.abs(svx) > 1 || Math.abs(svy) > 1) {
+                rafId = requestAnimationFrame(tick);
+            } else {
+                svx = 0; svy = 0;
+                item.style.setProperty('--tx', '0px');
+                item.style.setProperty('--ty', '0px');
+                rafId = null;
+            }
+        }
+
         item.addEventListener('mouseleave', () => {
             if (rafId) cancelAnimationFrame(rafId);
+            svx = 0; svy = 0;
             item.style.setProperty('--tx', '0px');
             item.style.setProperty('--ty', '0px');
+            rafId = null;
         });
     });
 });

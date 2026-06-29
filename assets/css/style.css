@@ -645,7 +645,7 @@ a {
     text-align: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s, transform 0.08s ease-out;
+    transition: opacity 0.2s;
     z-index: 100;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
