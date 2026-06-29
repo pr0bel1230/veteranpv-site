@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.addEventListener('click', () => {
             nav.classList.toggle('header__nav--open');
             burger.classList.toggle('burger--active');
+            document.body.style.overflow = nav.classList.contains('header__nav--open') ? 'hidden' : '';
         });
 
         // Close menu on link click
@@ -17,15 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 nav.classList.remove('header__nav--open');
                 burger.classList.remove('burger--active');
+                document.body.style.overflow = '';
             });
-        });
-
-        // Close menu on outside click
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && nav.classList.contains('header__nav--open')) {
-                nav.classList.remove('header__nav--open');
-                burger.classList.remove('burger--active');
-            }
         });
     }
 
