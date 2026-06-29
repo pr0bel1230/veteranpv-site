@@ -944,6 +944,21 @@ a {
     font-size: 0.85rem;
 }
 
+.footer__email {
+    margin-top: 8px;
+}
+
+.footer__email a {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer__email a:hover {
+    color: var(--gold);
+}
+
 .footer__req-title {
     font-weight: 700;
     color: var(--gold);
