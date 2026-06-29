@@ -119,4 +119,25 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // Floating tooltip — следит за курсором
+    document.querySelectorAll('.partners__item').forEach(item => {
+        let rafId = null;
+        item.addEventListener('mousemove', (e) => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+                const r = item.getBoundingClientRect();
+                const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+                const dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+                item.style.setProperty('--tx', (dx * 12).toFixed(1) + 'px');
+                item.style.setProperty('--ty', (dy * 6).toFixed(1) + 'px');
+                rafId = null;
+            });
+        });
+        item.addEventListener('mouseleave', () => {
+            if (rafId) cancelAnimationFrame(rafId);
+            item.style.setProperty('--tx', '0px');
+            item.style.setProperty('--ty', '0px');
+        });
+    });
 });
