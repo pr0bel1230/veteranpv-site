@@ -135,8 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
             lastX = e.clientX;
             lastY = e.clientY;
             // Smooth velocity — большие резкие движения дают заметный сдвиг
-            svx += (dx - svx) * 0.25;
-            svy += (dy - svy) * 0.25;
+            svx += (dx - svx) * 0.2;
+            svy += (dy - svy) * 0.2;
             if (!rafId) rafId = requestAnimationFrame(tick);
         });
 
@@ -145,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const ty = Math.max(-6, Math.min(6, svy * 0.7));
             item.style.setProperty('--tx', tx.toFixed(1) + 'px');
             item.style.setProperty('--ty', ty.toFixed(1) + 'px');
-            // Затухание скорости — когда курсор стоит, всё возвращается на место
-            svx *= 0.85;
-            svy *= 0.85;
-            if (Math.abs(svx) > 1 || Math.abs(svy) > 1) {
+            // Плавное затухание — тултип мягко возвращается на место
+            svx *= 0.93;
+            svy *= 0.93;
+            if (Math.abs(svx) > 0.3 || Math.abs(svy) > 0.3) {
                 rafId = requestAnimationFrame(tick);
             } else {
                 svx = 0; svy = 0;
