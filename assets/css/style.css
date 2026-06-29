@@ -700,14 +700,22 @@ a {
 .contacts__value--vk {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 20px;
+    transition: all 0.2s;
+    min-width: 120px;
 }
 
 .contacts__value--vk:hover {
-    opacity: 0.85;
+    background: #f5f5f5;
+    border-color: #ccc;
 }
 
 .contacts__vk-logo {
-    height: 24px;
+    height: 22px;
     width: auto;
     display: block;
 }
