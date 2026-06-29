@@ -497,6 +497,12 @@ a {
     transform: scale(1.02);
 }
 
+@media (min-width: 993px) {
+    .cta__gallery img:last-child {
+        grid-column: 2;
+    }
+}
+
 /* ===== ZASTAVA PREVIEW ===== */
 .zastava-preview {
     background: var(--bg-light);
