@@ -266,6 +266,7 @@ a {
     position: relative;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     background: linear-gradient(135deg, #0d2818 0%, #1a4d2e 40%, #2d6b3f 100%);
     overflow: hidden;
@@ -285,6 +286,9 @@ a {
     position: relative;
     z-index: 1;
     width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .hero__content {
@@ -322,27 +326,23 @@ a {
 }
 
 .hero__scroll {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--gold);
+    padding: 12px 0 28px;
     opacity: 0.7;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
     animation: hero-scroll-bounce 2s ease-in-out infinite;
 }
 
 .hero__scroll:hover {
     opacity: 1;
-    color: var(--gold-light);
+    transform: scale(1.1);
 }
 
 @keyframes hero-scroll-bounce {
     0%, 100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
     }
     50% {
-        transform: translateX(-50%) translateY(8px);
+        transform: translateY(6px);
     }
 }
 
