@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.work__card, .partners__item, .docs__card, .gallery__item').forEach(el => {
+    document.querySelectorAll('.work__card, .partners__item, .docs__card, .gallery__item, .facts__card, .team__card, .achievements__item, .camp__inner').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
