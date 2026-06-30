@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.work__card, .partners__item, .docs__card, .gallery__item, .facts__card, .team__card, .achievements__item, .camp__inner').forEach(el => {
+    document.querySelectorAll('.work__card, .partners__item, .docs__card, .gallery__item, .facts__card, .team__card, .achievements__item, .camp__inner, .carousel').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
@@ -168,5 +168,81 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.setProperty('--ty', '0px');
             rafId = null;
         });
+    });
+
+    // Carousel
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const track = carousel.querySelector('.carousel__track');
+        const slides = carousel.querySelectorAll('.carousel__slide');
+        const prevBtn = carousel.querySelector('.carousel__btn--prev');
+        const nextBtn = carousel.querySelector('.carousel__btn--next');
+        const dotsContainer = carousel.querySelector('.carousel__dots');
+
+        if (!track || !slides.length) return;
+
+        let currentIndex = 0;
+        let startX = 0, startY = 0;
+        let isDragging = false, didSwipe = false, lastSwipeTime = 0;
+
+        // Create dots
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'carousel__dot' + (i === 0 ? ' carousel__dot--active' : '');
+            dot.setAttribute('aria-label', 'Слайд ' + (i + 1));
+            dot.addEventListener('click', () => goTo(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.querySelectorAll('.carousel__dot');
+
+        function goTo(index) {
+            currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+            dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === currentIndex));
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+        // Keyboard navigation
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
+            if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+        });
+
+        // Touch / swipe support
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+            didSwipe = false;
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const dx = e.touches[0].clientX - startX;
+            const dy = e.touches[0].clientY - startY;
+            if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy)) {
+                didSwipe = true;
+            }
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const dx = e.changedTouches[0].clientX - startX;
+            if (Math.abs(dx) > 50) {
+                goTo(currentIndex + (dx < 0 ? 1 : -1));
+                lastSwipeTime = Date.now();
+            }
+            isDragging = false;
+        }, { passive: true });
+
+        // Prevent lightbox on swipe
+        track.addEventListener('click', (e) => {
+            if (Date.now() - lastSwipeTime < 500) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
     });
 });

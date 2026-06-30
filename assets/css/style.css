@@ -1690,3 +1690,141 @@ a {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--green-light);
 }
+
+/* ===== CAROUSEL ===== */
+.carousel {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+
+.carousel__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.carousel__slide {
+    flex: 0 0 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+/* Navigation arrows */
+.carousel__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, background 0.2s, transform 0.2s;
+    padding: 0;
+}
+
+.carousel:hover .carousel__btn {
+    opacity: 1;
+}
+
+.carousel__btn:hover {
+    background: rgba(0,0,0,0.7);
+    border-color: rgba(255,255,255,0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel__btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel__btn--prev { left: 16px; }
+.carousel__btn--next { right: 16px; }
+
+.carousel__btn svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Dots */
+.carousel__dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 0 4px;
+    flex-wrap: wrap;
+}
+
+.carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--green);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s;
+}
+
+.carousel__dot:hover {
+    background: var(--green-light);
+    border-color: var(--green-light);
+}
+
+.carousel__dot--active {
+    background: var(--green);
+    transform: scale(1.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel__btn {
+        width: 36px;
+        height: 36px;
+        opacity: 0.6;
+    }
+
+    .carousel__btn--prev { left: 8px; }
+    .carousel__btn--next { right: 8px; }
+
+    .carousel__btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .carousel__slide {
+        aspect-ratio: 4 / 3;
+    }
+
+    .carousel__dots {
+        padding: 12px 0 0;
+    }
+}
+
+/* Remove old cta gallery grid — replaced by carousel */
+.cta__gallery {
+    display: none;
+}
