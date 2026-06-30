@@ -202,7 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function goTo(index) {
-            currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+            // Зацикливание для кнопок и клавиатуры
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            currentIndex = index;
             slides[currentIndex].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
             dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === currentIndex));
             updateCounter();
@@ -220,10 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Edge wrap — зацикливание с усилием
-        const isMac = /Mac/i.test(navigator.platform);
         let wrapCooldown = false;
         let edgeCharge = 0;
         let edgeTimer = null;
+        let edgeArmTimer = null;
 
         carousel.addEventListener('wheel', (e) => {
             if (Math.abs(e.deltaX) < 15) return;
@@ -236,6 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const pushingPast = (atStart && e.deltaX < 0) || (atEnd && e.deltaX > 0);
 
             if (pushingPast) {
+                // Если только что прилетели на край — ждём отдельного жеста
+                if (edgeArmTimer !== null) return;
                 edgeCharge += Math.abs(e.deltaX);
                 if (edgeTimer) clearTimeout(edgeTimer);
 
@@ -258,23 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     const target = atStart ? slides.length - 1 : 0;
                     goTo(target);
 
-                    // Мак-специфичный тактильный щелчок через Web Audio
-                    if (isMac) {
-                        try {
-                            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                            const osc = ctx.createOscillator();
-                            const gain = ctx.createGain();
-                            osc.type = 'sine';
-                            osc.frequency.value = 65;
-                            gain.gain.setValueAtTime(0.04, ctx.currentTime);
-                            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
-                            osc.connect(gain);
-                            gain.connect(ctx.destination);
-                            osc.start();
-                            osc.stop(ctx.currentTime + 0.04);
-                        } catch(_) {}
-                    }
-
                     setTimeout(() => {
                         carousel.classList.remove('carousel--edge-break');
                         wrapCooldown = false;
@@ -290,24 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Sync dots/counter with native scroll (trackpad, wheel, touch)
         let scrollRAF = null;
-        let hapticCtx = null;
-        function hapticTick(low) {
-            if (!isMac || wrapCooldown) return;
-            try {
-                if (!hapticCtx) hapticCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = hapticCtx.createOscillator();
-                const gain = hapticCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.value = low ? 60 : 80;
-                const vol = low ? 0.03 : 0.025;
-                gain.gain.setValueAtTime(vol, hapticCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, hapticCtx.currentTime + 0.035);
-                osc.connect(gain);
-                gain.connect(hapticCtx.destination);
-                osc.start();
-                osc.stop(hapticCtx.currentTime + 0.035);
-            } catch(_) {}
-        }
+
 
         track.addEventListener('scroll', () => {
             if (scrollRAF) cancelAnimationFrame(scrollRAF);
@@ -318,8 +289,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentIndex = Math.max(0, Math.min(idx, slides.length - 1));
                     dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === currentIndex));
                     updateCounter();
-                    // Обычный тик при перелистывании
-                    hapticTick(false);
+                    // Вооружение края: после остановки даём 400мс тишины
+                    if (currentIndex === 0 || currentIndex === slides.length - 1) {
+                        if (edgeArmTimer !== null) clearTimeout(edgeArmTimer);
+                        edgeArmTimer = setTimeout(() => { edgeArmTimer = null; }, 400);
+                    } else {
+                        if (edgeArmTimer !== null) {
+                            clearTimeout(edgeArmTimer);
+                            edgeArmTimer = null;
+                        }
+                    }
                 }
             });
         });
