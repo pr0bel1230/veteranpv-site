@@ -222,15 +222,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowRight') goTo(currentIndex + 1);
         });
 
-        // Horizontal scroll / trackpad swipe — с защитой от частых срабатываний
-        let wheelCooldown = false;
+        // Горизонтальный скролл — накопление дистанции для плавной работы
+        let scrollAccum = 0;
+        let scrollTimeout = null;
         carousel.addEventListener('wheel', (e) => {
-            if (Math.abs(e.deltaX) > 30 && !wheelCooldown) {
-                e.preventDefault();
-                wheelCooldown = true;
-                goTo(currentIndex + (e.deltaX > 0 ? 1 : -1));
-                setTimeout(() => { wheelCooldown = false; }, 400);
+            if (Math.abs(e.deltaX) < 5) return;
+            e.preventDefault();
+            scrollAccum += e.deltaX;
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            if (Math.abs(scrollAccum) >= 60) {
+                goTo(currentIndex + (scrollAccum > 0 ? 1 : -1));
+                scrollAccum = 0;
             }
+            scrollTimeout = setTimeout(() => { scrollAccum = 0; }, 200);
         }, { passive: false });
 
         // Touch / swipe support
