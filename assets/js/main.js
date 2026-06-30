@@ -82,7 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-lightbox]').forEach(img => {
         img.addEventListener('click', (e) => {
-            lightboxImg.src = e.target.src;
+            // Load -full version for lightbox (higher quality)
+            const src = e.target.src;
+            const dot = src.lastIndexOf('.');
+            lightboxImg.src = dot !== -1 ? src.slice(0, dot) + '-full' + src.slice(dot) : src;
             lightbox.classList.add('lightbox--open');
             document.body.style.overflow = 'hidden';
         });
