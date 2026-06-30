@@ -1688,7 +1688,7 @@ a {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 16px;
-    background: #0d0d0d;
+    /* background inherited — no dark chin */
     box-shadow:
         0 8px 40px rgba(0,0,0,0.2),
         0 0 0 1px rgba(212, 168, 67, 0.10);
@@ -1702,7 +1702,7 @@ a {
     z-index: 1;
     pointer-events: none;
     background:
-        radial-gradient(ellipse 50% 30% at 50% 50%, transparent 50%, rgba(0,0,0,0.15) 100%);
+        radial-gradient(ellipse 50% 30% at 50% 50%, transparent 50%, rgba(0,0,0,0.06) 100%);
 }
 
 /* Cinematic edge fade */
@@ -1713,7 +1713,7 @@ a {
     z-index: 2;
     pointer-events: none;
     background:
-        linear-gradient(to right, rgba(0,0,0,0.30) 0%, transparent 8%, transparent 92%, rgba(0,0,0,0.30) 100%);
+        linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 12%, transparent 88%, rgba(0,0,0,0.08) 100%);
 }
 
 .carousel__track {
@@ -1879,7 +1879,7 @@ a {
 
     .carousel::before {
         background:
-            linear-gradient(to right, rgba(0,0,0,0.20) 0%, transparent 5%, transparent 95%, rgba(0,0,0,0.20) 100%);
+            linear-gradient(to right, rgba(0,0,0,0.06) 0%, transparent 8%, transparent 92%, rgba(0,0,0,0.06) 100%);
     }
 
     .carousel__btn {
