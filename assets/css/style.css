@@ -292,7 +292,7 @@ a {
     flex-direction: column;
     align-items: center;
     background:
-        linear-gradient(135deg, rgba(13,40,24,0.93) 0%, rgba(13,40,24,0.6) 28%, rgba(26,77,46,0.2) 58%, transparent 80%),
+        linear-gradient(135deg, rgba(13,40,24,0.96) 0%, rgba(13,40,24,0.8) 30%, rgba(26,77,46,0.4) 62%, transparent 92%),
         url('/assets/img/hero-bg.jpg') center / cover no-repeat;
     background-color: #0d2818;
     overflow: hidden;
@@ -1135,7 +1135,7 @@ a {
 
     .hero {
         background:
-            linear-gradient(180deg, rgba(13,40,24,0.95) 0%, rgba(13,40,24,0.75) 50%, rgba(26,77,46,0.3) 100%),
+            linear-gradient(180deg, rgba(13,40,24,0.97) 0%, rgba(13,40,24,0.85) 50%, rgba(26,77,46,0.4) 100%),
             url('/assets/img/hero-bg.jpg') center / cover no-repeat;
         background-color: #0d2818;
     }
