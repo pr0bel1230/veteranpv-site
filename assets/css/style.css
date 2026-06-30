@@ -1718,8 +1718,15 @@ a {
 
 .carousel__track {
     display: flex;
-    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+    display: none;
 }
 
 .carousel__slide {
@@ -1728,6 +1735,7 @@ a {
     overflow: hidden;
     position: relative;
     z-index: 0;
+    scroll-snap-align: start;
 }
 
 .carousel__slide img {
