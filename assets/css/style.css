@@ -1782,11 +1782,12 @@ a {
         border-color 0.2s,
         box-shadow 0.2s;
     padding: 0;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow:
         0 4px 15px rgba(0,0,0,0.3),
-        0 0 20px rgba(212,168,67,0.06);
+        0 0 0 1px rgba(212,168,67,0.15),
+        0 0 25px rgba(212,168,67,0.08);
     opacity: 0.6;
 }
 
@@ -1835,27 +1836,35 @@ a {
 
 /* Dots */
 .carousel__dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
     display: flex;
     justify-content: center;
     gap: 8px;
-    padding: 20px 0 4px;
+    padding: 44px 20px 14px;
     flex-wrap: wrap;
+    background: linear-gradient(to top, rgba(0,0,0,0.30) 0%, transparent 100%);
+    pointer-events: none;
 }
 
 .carousel__dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(212, 168, 67, 0.25);
+    background: rgba(255,255,255,0.35);
     border: none;
     cursor: pointer;
     padding: 0;
+    pointer-events: auto;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
 .carousel__dot:hover {
-    background: rgba(212, 168, 67, 0.5);
+    background: rgba(255,255,255,0.7);
     transform: scale(1.2);
 }
 
@@ -1901,7 +1910,7 @@ a {
     }
 
     .carousel__counter {
-        bottom: 16px;
+        bottom: 20px;
         left: 16px;
         font-size: 0.8rem;
         padding: 4px 12px;
@@ -1909,7 +1918,7 @@ a {
 
     .carousel__dots {
         gap: 6px;
-        padding: 16px 0 4px;
+        padding: 32px 12px 10px;
     }
 
     .carousel__dot {

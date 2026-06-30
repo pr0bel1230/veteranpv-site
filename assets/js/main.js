@@ -222,6 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowRight') goTo(currentIndex + 1);
         });
 
+        // Horizontal scroll / trackpad swipe
+        carousel.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaX) > 15) {
+                e.preventDefault();
+                goTo(currentIndex + (e.deltaX > 0 ? 1 : -1));
+            }
+        }, { passive: false });
+
         // Touch / swipe support
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
