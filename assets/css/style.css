@@ -352,18 +352,35 @@ a {
 }
 
 .hero__scroll {
+    position: relative;
     display: flex;
     justify-content: center;
-    padding: 12px 0 28px;
+    padding: 14px 0 28px;
     width: 100%;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: opacity 0.2s, transform 0.2s;
     animation: hero-scroll-bounce 2s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* Тёмно-зелёное градиентное пятно за стрелкой — чтобы не сливалась с фоном */
+.hero__scroll::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    background: radial-gradient(circle, rgba(13,40,24,0.85) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .hero__scroll:hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 @keyframes hero-scroll-bounce {
