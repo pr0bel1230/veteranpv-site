@@ -1202,6 +1202,18 @@ a {
         height: 240px;
     }
 
+    .camp__stamp {
+        font-size: 1rem;
+        padding: 8px 20px;
+        letter-spacing: 2px;
+        border-width: 2px;
+    }
+
+    .camp__action {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .team__card {
         max-width: 280px;
         margin: 0 auto;
@@ -1524,6 +1536,94 @@ a {
 .camp__meta-icon {
     color: var(--gold);
     flex-shrink: 0;
+}
+
+/* Camp — done / closed state */
+.camp__image--done {
+    position: relative;
+}
+
+.camp__stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    background: rgba(180, 40, 40, 0.88);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding: 10px 32px;
+    border: 3px solid rgba(255,255,255,0.6);
+    border-radius: 4px;
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.camp__badge {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+}
+
+.camp__meta-item--done {
+    color: var(--green);
+}
+
+.camp__meta-item--done .camp__meta-icon {
+    color: var(--green);
+}
+
+.btn--disabled {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: default;
+    color: #aaa;
+    background: #f5f5f5;
+    pointer-events: none;
+}
+
+.camp__action {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.camp__note {
+    font-size: 0.85rem !important;
+    color: var(--text-muted) !important;
+    margin-bottom: 0 !important;
+}
+
+.camp__note a {
+    color: var(--green);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.camp__note a:hover {
+    color: var(--green-light);
 }
 
 /* ===== CONTACT ADDRESS ===== */
