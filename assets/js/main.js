@@ -206,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function goTo(index) {
             currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+            track.style.transition = '';
             track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
             dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === currentIndex));
             updateCounter();
@@ -222,19 +223,42 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'ArrowRight') goTo(currentIndex + 1);
         });
 
-        // Горизонтальный скролл — накопление дистанции для плавной работы
-        let scrollAccum = 0;
-        let scrollTimeout = null;
+        // Горизонтальный скролл (trackpad) — синхронно с пальцем + прилипание
+        const WHEEL_RES = 0.55;        // сопротивление (0–1)
+        let scrollState = null;        // { currentPct, timer }
+
         carousel.addEventListener('wheel', (e) => {
-            if (Math.abs(e.deltaX) < 5) return;
+            if (Math.abs(e.deltaX) < 3) return;
             e.preventDefault();
-            scrollAccum += e.deltaX;
-            if (scrollTimeout) clearTimeout(scrollTimeout);
-            if (Math.abs(scrollAccum) >= 60) {
-                goTo(currentIndex + (scrollAccum > 0 ? 1 : -1));
-                scrollAccum = 0;
+
+            if (!scrollState) {
+                scrollState = { currentPct: currentIndex * 100, timer: null };
+                track.style.transition = 'none';   // без анимации, пока тащим
+            } else if (scrollState.timer) {
+                clearTimeout(scrollState.timer);
             }
-            scrollTimeout = setTimeout(() => { scrollAccum = 0; }, 200);
+
+            // deltaX > 0 → следующий слайд → translateX(-больше%)
+            const pxPerPct = carousel.offsetWidth / 100;
+            scrollState.currentPct += (e.deltaX / pxPerPct) * WHEEL_RES;
+
+            // Пружинка на краях — резкое сопротивление
+            const maxPct = (slides.length - 1) * 100;
+            if (scrollState.currentPct < 0) {
+                scrollState.currentPct *= 0.25;
+            } else if (scrollState.currentPct > maxPct) {
+                const excess = scrollState.currentPct - maxPct;
+                scrollState.currentPct = maxPct + excess * 0.25;
+            }
+
+            track.style.transform = 'translateX(-' + scrollState.currentPct + '%)';
+
+            // Прилипание к ближайшему слайду через 150мс после остановки
+            scrollState.timer = setTimeout(() => {
+                const snapped = Math.round(scrollState.currentPct / 100);
+                goTo(Math.max(0, Math.min(snapped, slides.length - 1)));
+                scrollState = null;
+            }, 150);
         }, { passive: false });
 
         // Touch / swipe support
