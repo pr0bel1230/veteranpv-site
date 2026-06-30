@@ -192,11 +192,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dots = dotsContainer.querySelectorAll('.carousel__dot');
 
+        // Counter badge
+        const counter = document.createElement('div');
+        counter.className = 'carousel__counter';
+        carousel.appendChild(counter);
+
+        function updateCounter() {
+            const pad = slides.length >= 10 ? 2 : 1;
+            const cur = String(currentIndex + 1).padStart(pad, '0');
+            const total = String(slides.length).padStart(pad, '0');
+            counter.textContent = cur + ' / ' + total;
+        }
+
         function goTo(index) {
             currentIndex = Math.max(0, Math.min(index, slides.length - 1));
             track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
             dots.forEach((d, i) => d.classList.toggle('carousel__dot--active', i === currentIndex));
+            updateCounter();
         }
+
+        updateCounter();
 
         if (prevBtn) prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
