@@ -1939,7 +1939,36 @@ a {
     }
 }
 
+
 /* Old gallery grid hidden — replaced by carousel */
 .cta__gallery {
     display: none;
 }
+
+/* Edge wrap animations */
+.carousel--edge-resist .carousel__track {
+    transition: transform 0.05s ease;
+}
+
+@keyframes carousel-wrap {
+    0% { filter: brightness(1); transform: scale(1); }
+    20% { filter: brightness(1.15); transform: scale(1.02); }
+    50% { filter: brightness(0.85); transform: scale(0.97); }
+    100% { filter: brightness(1); transform: scale(1); }
+}
+
+.carousel--edge-break {
+    animation: carousel-wrap 0.45s ease-out;
+}
+
+.carousel--edge-break .carousel__slide img {
+    animation: carousel-wrap 0.45s ease-out;
+}
+
+/* Mobile wrap animation override */
+@media (max-width: 768px) {
+    .carousel--edge-break .carousel__slide img {
+        animation-duration: 0.35s;
+    }
+}
+
