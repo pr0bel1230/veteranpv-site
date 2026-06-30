@@ -82,10 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-lightbox]').forEach(img => {
         img.addEventListener('click', (e) => {
-            // Load -full version for lightbox (higher quality)
-            const src = e.target.src;
-            const dot = src.lastIndexOf('.');
-            lightboxImg.src = dot !== -1 ? src.slice(0, dot) + '-full' + src.slice(dot) : src;
+            lightboxImg.src = e.target.src;
             lightbox.classList.add('lightbox--open');
             document.body.style.overflow = 'hidden';
         });
@@ -181,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!track || !slides.length) return;
 
         let currentIndex = 0;
-        let startX = 0, startY = 0;
-        let isDragging = false, didSwipe = false, lastSwipeTime = 0;
+        let startX = 0;
+        let isDragging = false;
 
         // Create dots
         for (let i = 0; i < slides.length; i++) {
@@ -213,18 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Touch / swipe support
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
             isDragging = true;
-            didSwipe = false;
-        }, { passive: true });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const dx = e.touches[0].clientX - startX;
-            const dy = e.touches[0].clientY - startY;
-            if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy)) {
-                didSwipe = true;
-            }
         }, { passive: true });
 
         track.addEventListener('touchend', (e) => {
@@ -232,17 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const dx = e.changedTouches[0].clientX - startX;
             if (Math.abs(dx) > 50) {
                 goTo(currentIndex + (dx < 0 ? 1 : -1));
-                lastSwipeTime = Date.now();
             }
             isDragging = false;
         }, { passive: true });
 
-        // Prevent lightbox on swipe
-        track.addEventListener('click', (e) => {
-            if (Date.now() - lastSwipeTime < 500) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        }, true);
     });
 });
