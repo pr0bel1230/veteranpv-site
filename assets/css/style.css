@@ -1305,13 +1305,43 @@ a {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .facts__card {
+        padding: 24px 16px;
+    }
+
+    .facts__number {
+        font-size: 1.8rem;
+    }
+
+    .facts__label {
+        font-size: 0.82rem;
+    }
+
     .team__grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .team__card {
+        padding: 20px 12px;
+    }
+
+    .team__avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    .team__name {
+        font-size: 0.9rem;
+    }
+
+    .team__role {
+        font-size: 0.82rem;
+    }
+
     .camp__inner {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .camp__meta {
