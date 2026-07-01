@@ -1064,7 +1064,27 @@ a {
     }
 
     .team__grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 8px;
+        grid-template-columns: none;
+    }
+
+    .team__card {
+        flex: 0 0 auto;
+        width: 160px;
+        scroll-snap-align: start;
+    }
+
+    .team__grid::-webkit-scrollbar {
+        height: 4px;
+    }
+    .team__grid::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
     }
 
     .camp__inner {
@@ -1318,10 +1338,11 @@ a {
     }
 
     .team__grid {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .team__card {
+        width: 140px;
         padding: 20px 12px;
     }
 
@@ -1727,23 +1748,21 @@ a {
         font-size: 0.85rem;
     }
 
-    /* Team — horizontal scroll вместо сетки */
+    /* Team — галерея: руководитель на всю ширину */
     .team__grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 4px;
-        grid-template-columns: none;
     }
 
     .team__card {
-        flex: 0 0 auto;
-        width: 120px;
-        scroll-snap-align: start;
         padding: 14px 8px;
         max-width: none;
+    }
+
+    .team__card:first-child {
+        grid-column: 1 / -1;
+        padding: 16px 12px;
     }
 
     .team__avatar {
@@ -1761,14 +1780,6 @@ a {
 
     .team__role {
         font-size: 0.72rem;
-    }
-
-    .team__grid::-webkit-scrollbar {
-        height: 3px;
-    }
-    .team__grid::-webkit-scrollbar-thumb {
-        background: var(--gold);
-        border-radius: 3px;
     }
 
     /* Summer camp */
@@ -2094,12 +2105,14 @@ a {
 
     .team__grid {
         gap: 8px;
-        grid-template-columns: none;
     }
 
     .team__card {
         padding: 12px 6px;
-        width: 105px;
+    }
+
+    .team__card:first-child {
+        padding: 14px 10px;
     }
 
     .team__avatar {
