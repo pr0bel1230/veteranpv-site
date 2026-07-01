@@ -1654,19 +1654,21 @@ a {
     /* Facts */
     .facts__grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
     }
 
     .facts__card {
-        padding: 20px 12px;
+        padding: 14px 10px;
     }
 
     .facts__number {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .facts__label {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
+        word-break: break-word;
+        hyphens: auto;
     }
 
     /* Achievements */
@@ -1682,63 +1684,75 @@ a {
     /* Team */
     .team__grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
     }
 
     .team__card {
         max-width: none;
-        padding: 18px 10px;
+        padding: 14px 8px;
     }
 
     .team__avatar {
-        width: 44px;
-        height: 44px;
-        font-size: 0.9rem;
+        width: 38px;
+        height: 38px;
+        font-size: 0.8rem;
+        margin-bottom: 10px;
     }
 
     .team__name {
-        font-size: 0.82rem;
+        font-size: 0.78rem;
+        word-break: break-word;
+        hyphens: auto;
     }
 
     .team__role {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
     }
 
     /* Summer camp */
     .camp__inner {
-        gap: 16px;
+        gap: 12px;
     }
 
     .camp__image img {
-        height: 170px;
+        height: 160px;
     }
 
     .camp__content h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .camp__content p {
-        font-size: 0.85rem;
-        margin-bottom: 8px;
-        line-height: 1.6;
+        font-size: 0.82rem;
+        margin-bottom: 6px;
+        line-height: 1.55;
     }
 
     .camp__meta {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        margin: 14px 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 8px;
+        margin: 10px 0;
     }
 
     .camp__meta-item {
-        font-size: 0.8rem;
-        gap: 6px;
+        font-size: 0.78rem;
+        gap: 4px;
     }
 
     .camp__stamp {
-        font-size: 0.75rem;
-        padding: 5px 12px;
+        font-size: 0.72rem;
+        padding: 4px 10px;
         letter-spacing: 1px;
         border-width: 2px;
+    }
+
+    .camp__action .btn--disabled {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+
+    .camp__note {
+        font-size: 0.8rem;
     }
 
 
@@ -1970,19 +1984,19 @@ a {
 
     .facts__grid {
         grid-template-columns: 1fr 1fr;
-        gap: 8px;
+        gap: 6px;
     }
 
     .facts__card {
-        padding: 14px 10px;
+        padding: 12px 8px;
     }
 
     .facts__number {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .facts__label {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
     }
 
     .achievements__item {
@@ -2016,33 +2030,49 @@ a {
     }
 
     .team__grid {
-        gap: 8px;
+        gap: 6px;
     }
 
     .team__card {
-        padding: 14px 8px;
+        padding: 12px 6px;
     }
 
     .team__avatar {
-        width: 38px;
-        height: 38px;
-        font-size: 0.8rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+    }
+
+    .team__name {
+        font-size: 0.72rem;
+    }
+
+    .team__role {
+        font-size: 0.68rem;
     }
 
     .camp__image img {
-        height: 150px;
+        height: 140px;
     }
 
     .camp__content h3 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .camp__content p {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
+        margin-bottom: 4px;
     }
 
     .camp__meta {
-        margin: 10px 0;
+        grid-template-columns: 1fr;
+        gap: 3px;
+        margin: 8px 0;
+    }
+
+    .camp__meta-item {
+        font-size: 0.75rem;
     }
 
     .content-block__image img {
