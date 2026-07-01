@@ -1166,8 +1166,16 @@ a {
         grid-template-columns: 1fr;
     }
 
+    .page-hero {
+        padding: 110px 0 40px;
+    }
+
     .page-hero__title {
         font-size: 1.6rem;
+    }
+
+    .page-hero__subtitle {
+        font-size: 0.95rem;
     }
 
     .facts__grid {
@@ -1201,6 +1209,12 @@ a {
     .camp__action {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .about__image img,
+    .zastava-preview__image img,
+    .content-block__image img {
+        height: 240px;
     }
 
     .team__card {
@@ -1313,11 +1327,426 @@ a {
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section__title {
+        font-size: 1.3rem;
+        margin-bottom: 24px;
+    }
+
+    .section__title::after {
+        width: 48px;
+        height: 3px;
+        margin-top: 12px;
+    }
+
+    .section__subtitle {
+        font-size: 0.9rem;
+        margin: -20px auto 32px;
+        max-width: 100%;
+        padding: 0 4px;
+    }
+
+    /* Header */
+    .header__inner {
+        height: 60px;
+    }
+
+    .header__logo-img {
+        width: 34px;
+        height: 34px;
+        border-width: 1.5px;
+    }
+
+    .nav__link {
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .btn--small {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Hero */
+    .hero__content {
+        padding: 90px 0 30px;
+    }
+
+    .hero__desc {
+        font-size: 0.95rem;
+        margin: 16px 0 28px;
+    }
+
+    .hero__scroll {
+        padding: 10px 0 20px;
+    }
+
+    .hero__scroll svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Page hero (inner pages) */
+    .page-hero {
+        padding: 100px 0 32px;
+    }
+
+    .page-hero__title {
+        font-size: 1.4rem;
+    }
+
+    .page-hero__subtitle {
+        font-size: 0.9rem;
+        margin-top: 8px;
+        line-height: 1.5;
+    }
+
+    /* About / Content block */
+    .about__content {
+        gap: 24px;
+    }
+
+    .about__image img,
+    .zastava-preview__image img,
+    .content-block__image img {
+        height: 220px;
+    }
+
+    .about__text p,
+    .content-block__text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    /* Work / Activities grid */
+    .work__grid {
+        gap: 16px;
+    }
+
+    .work__card {
+        padding: 28px 20px;
+    }
+
+    .work__title {
+        font-size: 1.05rem;
+    }
+
+    .work__card p {
+        font-size: 0.9rem;
+    }
+
+    .work__icon {
+        margin-bottom: 14px;
+    }
+
+    .work__icon svg {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* CTA */
+    .cta__title {
+        font-size: 1.3rem;
+    }
+
+    .cta__text {
+        font-size: 0.95rem;
+        margin-bottom: 28px;
+    }
+
+    /* Partners */
+    .partners__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .partners__item {
+        padding: 16px 12px;
+        gap: 8px;
+    }
+
+    .partners__icon {
+        width: 80px;
+        height: 70px;
+    }
+
+    .partners__item span {
+        font-size: 0.8rem;
+    }
+
+    .partners__item::after {
+        display: none;
+    }
+
+    /* Facts */
+    .facts__grid {
+        gap: 16px;
+    }
+
+    .facts__card {
+        padding: 24px 16px;
+    }
+
+    .facts__number {
+        font-size: 1.8rem;
+    }
+
+    .facts__label {
+        font-size: 0.8rem;
+    }
+
+    /* Achievements */
+    .achievements__item {
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .achievements__text {
+        font-size: 0.85rem;
+    }
+
+    /* Team */
+    .team__grid {
+        gap: 16px;
+    }
+
+    .team__card {
+        max-width: 240px;
+    }
+
+    .team__avatar {
+        width: 52px;
+        height: 52px;
+        font-size: 1.1rem;
+    }
+
+    .team__name {
+        font-size: 0.9rem;
+    }
+
+    .team__role {
+        font-size: 0.8rem;
+    }
+
+    /* Summer camp */
+    .camp__inner {
+        gap: 24px;
+    }
+
+    .camp__image img {
+        height: 200px;
+    }
+
+    .camp__content h3 {
+        font-size: 1.1rem;
+    }
+
+    .camp__content p {
+        font-size: 0.9rem;
+    }
+
+    .camp__meta {
+        gap: 8px;
+    }
+
+    .camp__meta-item {
+        font-size: 0.8rem;
+    }
+
+    .camp__stamp {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+        letter-spacing: 1px;
+        border-width: 2px;
+    }
+
+    .camp__badge {
+        display: block;
+        width: fit-content;
+        margin: 8px 0 0;
+    }
+
+    /* Location */
+    .location__address {
+        font-size: 1.1rem;
+    }
+
+    .location__detail {
+        font-size: 0.85rem;
+    }
+
+    .location__map iframe {
+        height: 280px;
+    }
+
+    /* Contacts */
+    .contacts__info {
+        gap: 20px;
+    }
+
+    .contacts__value {
+        font-size: 1.1rem;
+    }
+
+    .contacts__value--vk {
+        padding: 6px 16px;
+        min-width: 100px;
+    }
+
+    .contacts__vk-logo {
+        height: 18px;
+    }
+
+    /* Documents */
+    .docs__intro p {
+        font-size: 0.9rem;
+    }
+
+    .docs__card {
+        padding: 18px;
+        gap: 14px;
+    }
+
+    .docs__card-title {
+        font-size: 0.9rem;
+    }
+
+    .docs__card-desc {
+        font-size: 0.85rem;
+    }
+
+    .docs__table td {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .docs__note h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 28px 0;
+    }
+
+    .footer__inner {
+        gap: 20px;
+    }
+
+    .footer__logo-img {
+        width: 34px;
+        height: 34px;
+        border-width: 1.5px;
+    }
+
+    .footer__logo-text {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .footer__requisites {
+        font-size: 0.8rem;
+    }
+
+    .footer__email a {
+        font-size: 0.8rem;
+    }
+
+    .footer__copy {
+        font-size: 0.75rem;
+    }
+
+    /* Carousel */
+    .carousel {
+        border-radius: 10px;
+    }
+
+    .carousel__btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .carousel__btn--prev { left: 6px; }
+    .carousel__btn--next { right: 6px; }
+
+    .carousel__btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .carousel__slide {
+        aspect-ratio: 4 / 3;
+    }
+
+    .carousel__counter {
+        bottom: 16px;
+        left: 12px;
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+
+    .carousel__dots {
+        gap: 5px;
+        padding: 24px 8px 8px;
+    }
+
+    .carousel__dot {
+        width: 7px;
+        height: 7px;
+    }
+
+    .carousel__dot--active {
+        width: 18px;
+    }
+
+    /* Scroll to top */
     .scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
+        bottom: 16px;
+        right: 16px;
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 400px) {
+    .partners__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .partners__item {
+        padding: 12px 8px;
+    }
+
+    .partners__icon {
+        width: 60px;
+        height: 56px;
+    }
+
+    .facts__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .facts__card {
+        padding: 18px 12px;
+    }
+
+    .facts__number {
+        font-size: 1.5rem;
     }
 }
 
