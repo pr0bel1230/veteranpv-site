@@ -1264,7 +1264,21 @@ a {
     }
 
     .work__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .work__card {
+        padding: 24px 20px;
+    }
+
+    .work__title {
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+    }
+
+    .work__card p {
+        font-size: 0.88rem;
     }
 
     .partners__grid {
@@ -1292,20 +1306,20 @@ a {
     }
 
     .team__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .camp__inner {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 24px;
     }
 
     .camp__meta {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .camp__image img {
-        height: 240px;
+        height: 200px;
     }
 
     .camp__stamp {
@@ -1327,8 +1341,22 @@ a {
     }
 
     .team__card {
-        max-width: 280px;
-        margin: 0 auto;
+        max-width: none;
+        padding: 24px 12px;
+    }
+
+    .team__avatar {
+        width: 52px;
+        height: 52px;
+        font-size: 1rem;
+    }
+
+    .team__name {
+        font-size: 0.85rem;
+    }
+
+    .team__role {
+        font-size: 0.8rem;
     }
 
     .docs__card {
@@ -1542,28 +1570,31 @@ a {
 
     /* Work / Activities grid */
     .work__grid {
-        gap: 16px;
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .work__card {
-        padding: 28px 20px;
+        padding: 22px 18px;
     }
 
     .work__title {
-        font-size: 1.05rem;
+        font-size: 1rem;
+        margin-bottom: 6px;
     }
 
     .work__card p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.6;
     }
 
     .work__icon {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
     }
 
     .work__icon svg {
-        width: 38px;
-        height: 38px;
+        width: 34px;
+        height: 34px;
     }
 
     /* CTA */
@@ -1602,19 +1633,20 @@ a {
 
     /* Facts */
     .facts__grid {
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .facts__card {
-        padding: 24px 16px;
+        padding: 20px 12px;
     }
 
     .facts__number {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .facts__label {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     /* Achievements */
@@ -1629,50 +1661,56 @@ a {
 
     /* Team */
     .team__grid {
-        gap: 16px;
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .team__card {
-        max-width: 240px;
+        max-width: 280px;
+        padding: 20px 16px;
     }
 
     .team__avatar {
-        width: 52px;
-        height: 52px;
-        font-size: 1.1rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
     }
 
     .team__name {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
 
     .team__role {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
     }
 
     /* Summer camp */
     .camp__inner {
-        gap: 24px;
+        gap: 18px;
     }
 
     .camp__image img {
-        height: 200px;
+        height: 180px;
     }
 
     .camp__content h3 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .camp__content p {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
+        margin-bottom: 10px;
+        line-height: 1.65;
     }
 
     .camp__meta {
+        grid-template-columns: 1fr;
         gap: 8px;
+        margin: 16px 0;
     }
 
     .camp__meta-item {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
     }
 
     .camp__stamp {
@@ -1911,15 +1949,19 @@ a {
 
     .facts__grid {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
     }
 
     .facts__card {
-        padding: 18px 12px;
+        padding: 14px 10px;
     }
 
     .facts__number {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+    .facts__label {
+        font-size: 0.72rem;
     }
 
     .achievements__item {
@@ -1934,6 +1976,10 @@ a {
 
     .achievements__text {
         font-size: 0.8rem;
+    }
+
+    .camp__image img {
+        height: 160px;
     }
 
     .content-block__image img {
