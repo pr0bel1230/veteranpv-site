@@ -1093,7 +1093,18 @@ a {
     }
 
     .camp__image {
-        display: none;
+        display: block;
+    }
+    .camp__image img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        object-position: center 30%;
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .camp__content {
+        padding: 24px;
     }
 
     .camp__meta {
@@ -1387,7 +1398,18 @@ a {
     }
 
     .camp__image {
-        display: none;
+        display: block;
+    }
+    .camp__image img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        object-position: center 30%;
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .camp__content {
+        padding: 20px;
     }
 
     .camp__meta {
@@ -1419,6 +1441,12 @@ a {
         display: block;
         width: fit-content;
         margin: 8px 0 0;
+    }
+
+    .camp__stamp {
+        font-size: 1.2rem;
+        padding: 8px 24px;
+        border-width: 2px;
     }
 
     .about__image img,
@@ -1803,13 +1831,24 @@ a {
         font-size: 0.72rem !important;
     }
 
-    /* Summer camp — компактная карточка, без картинки */
+    /* Summer camp — карточка с изображением */
     .camp__inner {
         gap: 0;
     }
 
     .camp__image {
-        display: none;
+        display: block;
+    }
+    .camp__image img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        object-position: center 30%;
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .camp__content {
+        padding: 16px;
     }
 
     .camp__content h3 {
@@ -1852,6 +1891,13 @@ a {
 
     .camp__note {
         font-size: 0.78rem;
+    }
+
+    .camp__stamp {
+        font-size: 1rem;
+        padding: 6px 20px;
+        border-width: 2px;
+        letter-spacing: 2px;
     }
 
 
