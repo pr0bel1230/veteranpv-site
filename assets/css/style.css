@@ -1789,48 +1789,57 @@ a {
 
     /* Summer camp */
     .camp__inner {
-        gap: 12px;
+        gap: 10px;
     }
 
     .camp__image img {
-        height: 160px;
+        height: 100px;
+    }
+
+    .camp__stamp {
+        display: none;
     }
 
     .camp__content h3 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+
+    .camp__content h3::after {
+        width: 36px;
+        height: 2px;
+        margin: 6px 0 0;
     }
 
     .camp__content p {
-        font-size: 0.82rem;
-        margin-bottom: 6px;
-        line-height: 1.55;
+        font-size: 0.78rem;
+        margin-bottom: 4px;
+        line-height: 1.5;
     }
 
     .camp__meta {
         grid-template-columns: 1fr 1fr;
-        gap: 4px 8px;
-        margin: 10px 0;
+        gap: 2px 6px;
+        margin: 6px 0;
     }
 
     .camp__meta-item {
-        font-size: 0.78rem;
-        gap: 4px;
+        font-size: 0.72rem;
+        gap: 3px;
     }
 
-    .camp__stamp {
-        font-size: 0.72rem;
-        padding: 4px 10px;
-        letter-spacing: 1px;
-        border-width: 2px;
+    .camp__badge {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+        margin-left: 8px;
     }
 
     .camp__action .btn--disabled {
-        font-size: 0.85rem;
-        padding: 10px 16px;
+        font-size: 0.8rem;
+        padding: 8px 14px;
     }
 
     .camp__note {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 
 
@@ -2136,26 +2145,27 @@ a {
     }
 
     .camp__image img {
-        height: 140px;
+        height: 80px;
     }
 
     .camp__content h3 {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .camp__content p {
-        font-size: 0.78rem;
-        margin-bottom: 4px;
+        font-size: 0.75rem;
+        margin-bottom: 3px;
+        line-height: 1.45;
     }
 
     .camp__meta {
-        grid-template-columns: 1fr;
-        gap: 3px;
-        margin: 8px 0;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 4px;
+        margin: 6px 0;
     }
 
     .camp__meta-item {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     .content-block__image img {
