@@ -1081,6 +1081,18 @@ a {
     }
 }
 
+/* Stagger animation for mobile menu links */
+@keyframes navLinkIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .section {
         padding: 50px 0;
@@ -1094,6 +1106,7 @@ a {
     /* Burger */
     .burger {
         display: flex;
+        z-index: 1002;
     }
 
     .header__nav {
@@ -1102,32 +1115,87 @@ a {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(13, 26, 18, 0.97);
+        background: rgba(13, 26, 18, 0.98);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.3s ease;
-        z-index: 999;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        z-index: 1001;
     }
 
     .header__nav--open {
         opacity: 1;
+        visibility: visible;
         pointer-events: all;
+    }
+
+    /* Декоративная линия вверху меню */
+    .header__nav::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--gold);
+        border-radius: 0 0 2px 2px;
+        opacity: 0;
+        transition: opacity 0.3s ease 0.2s;
+    }
+
+    .header__nav--open::before {
+        opacity: 1;
     }
 
     .nav__list {
         flex-direction: column;
         gap: 0;
         text-align: center;
+        width: 100%;
+        max-width: 300px;
+        padding: 0 24px;
     }
 
     .nav__link {
         display: block;
-        padding: 18px 32px;
+        padding: 20px 24px;
         font-size: 1.15rem;
-        border-bottom: none;
+        font-weight: 600;
+        color: rgba(255,255,255,0.75);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        opacity: 0;
+        transform: translateY(14px);
+        transition: color 0.2s, background 0.2s;
+    }
+
+    .nav__link:hover,
+    .nav__link--active {
+        color: var(--gold);
+        background: rgba(255,255,255,0.04);
+    }
+
+    /* Stagger-анимация появления ссылок */
+    .header__nav--open .nav__link {
+        animation: navLinkIn 0.35s ease forwards;
+    }
+
+    .nav__list li:nth-child(1) .nav__link { animation-delay: 0.04s; }
+    .nav__list li:nth-child(2) .nav__link { animation-delay: 0.08s; }
+    .nav__list li:nth-child(3) .nav__link { animation-delay: 0.12s; }
+    .nav__list li:nth-child(4) .nav__link { animation-delay: 0.16s; }
+    .nav__list li:nth-child(5) .nav__link { animation-delay: 0.20s; }
+    .nav__list li:nth-child(6) .nav__link { animation-delay: 0.24s; }
+
+    /* Logo и бургер "всплывают" над меню */
+    .header__inner {
+        position: relative;
+        z-index: 1002;
     }
 
     .hero {
@@ -1573,11 +1641,6 @@ a {
         border-width: 2px;
     }
 
-    .camp__badge {
-        display: block;
-        width: fit-content;
-        margin: 8px 0 0;
-    }
 
     /* Location */
     .location__address {
@@ -1712,6 +1775,75 @@ a {
         width: 18px;
     }
 
+    /* Zastava page specific */
+    .section__title--left {
+        text-align: center;
+    }
+
+    .section__title--left::after {
+        margin: 12px auto 0;
+    }
+
+    .content-block {
+        gap: 20px;
+    }
+
+    .content-block__text {
+        text-align: left;
+    }
+
+    .content-block__text p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 14px;
+    }
+
+    .achievements__item {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    .achievements__icon {
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
+    }
+
+    .achievements__icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .achievements__text {
+        font-size: 0.85rem;
+        line-height: 1.55;
+    }
+
+    .camp__badge {
+        display: block;
+        width: fit-content;
+        margin: 8px 0 0;
+    }
+
+    .camp__action {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .camp__action .btn--disabled {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .location__detail {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .location__map iframe {
+        height: 260px;
+    }
+
     /* Scroll to top */
     .scroll-top {
         bottom: 16px;
@@ -1747,6 +1879,24 @@ a {
 
     .facts__number {
         font-size: 1.5rem;
+    }
+
+    .achievements__item {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .achievements__icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .achievements__text {
+        font-size: 0.8rem;
+    }
+
+    .content-block__image img {
+        height: 180px;
     }
 }
 

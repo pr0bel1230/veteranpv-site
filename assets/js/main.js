@@ -8,19 +8,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // Burger menu toggle
     if (burger && nav) {
         burger.addEventListener('click', () => {
-            nav.classList.toggle('header__nav--open');
-            burger.classList.toggle('burger--active');
-            document.body.style.overflow = nav.classList.contains('header__nav--open') ? 'hidden' : '';
+            toggleMenu();
         });
 
         // Close menu on link click
         nav.querySelectorAll('.nav__link').forEach(link => {
             link.addEventListener('click', () => {
-                nav.classList.remove('header__nav--open');
-                burger.classList.remove('burger--active');
-                document.body.style.overflow = '';
+                closeMenu();
             });
         });
+
+        // Close menu on backdrop click (click on nav background, not on link)
+        nav.addEventListener('click', (e) => {
+            if (e.target === nav) {
+                closeMenu();
+            }
+        });
+
+        function closeMenu() {
+            nav.classList.remove('header__nav--open');
+            burger.classList.remove('burger--active');
+            document.body.style.overflow = '';
+        }
+
+        function toggleMenu() {
+            nav.classList.toggle('header__nav--open');
+            burger.classList.toggle('burger--active');
+            document.body.style.overflow = nav.classList.contains('header__nav--open') ? 'hidden' : '';
+        }
     }
 
     // Smooth scroll for anchor links
