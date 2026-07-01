@@ -1093,29 +1093,20 @@ a {
     }
 }
 
-/* Desktop nav: навигация вне header__inner, располагаем в одной строке с лого */
+/* Desktop nav: вне header (чтобы избежать iOS-бага position:fixed внутри fixed) */
 @media (min-width: 769px) {
-    .header {
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-    }
-    .header__inner {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-        flex-shrink: 0;
-    }
     .header__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
         display: flex;
         align-items: center;
-        margin-left: auto;
-        /* Отключаем мобильные стили */
-        position: static;
+        height: 72px;
+        padding: 0 20px;
+        z-index: 1001;
+        background: none;
         opacity: 1;
         pointer-events: all;
-        background: none;
-        z-index: auto;
     }
 }
 
