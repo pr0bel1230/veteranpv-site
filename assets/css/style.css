@@ -1323,15 +1323,35 @@ a {
     }
 
     .camp__stamp {
-        font-size: 1rem;
-        padding: 8px 20px;
-        letter-spacing: 2px;
+        font-size: 0.9rem;
+        padding: 6px 18px;
+        letter-spacing: 1.5px;
         border-width: 2px;
     }
 
     .camp__action {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .camp__content h3 {
+        font-size: 1.1rem;
+    }
+
+    .camp__content p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        line-height: 1.65;
+    }
+
+    .camp__meta-item {
+        font-size: 0.82rem;
+    }
+
+    .camp__badge {
+        display: block;
+        width: fit-content;
+        margin: 8px 0 0;
     }
 
     .about__image img,
@@ -1570,31 +1590,31 @@ a {
 
     /* Work / Activities grid */
     .work__grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .work__card {
-        padding: 22px 18px;
+        padding: 18px 14px;
     }
 
     .work__title {
-        font-size: 1rem;
+        font-size: 0.92rem;
         margin-bottom: 6px;
     }
 
     .work__card p {
-        font-size: 0.85rem;
-        line-height: 1.6;
+        font-size: 0.8rem;
+        line-height: 1.55;
     }
 
     .work__icon {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .work__icon svg {
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
     }
 
     /* CTA */
@@ -1661,61 +1681,62 @@ a {
 
     /* Team */
     .team__grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .team__card {
-        max-width: 280px;
-        padding: 20px 16px;
+        max-width: none;
+        padding: 18px 10px;
     }
 
     .team__avatar {
-        width: 48px;
-        height: 48px;
-        font-size: 1rem;
+        width: 44px;
+        height: 44px;
+        font-size: 0.9rem;
     }
 
     .team__name {
-        font-size: 0.88rem;
+        font-size: 0.82rem;
     }
 
     .team__role {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
     }
 
     /* Summer camp */
     .camp__inner {
-        gap: 18px;
+        gap: 16px;
     }
 
     .camp__image img {
-        height: 180px;
+        height: 170px;
     }
 
     .camp__content h3 {
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .camp__content p {
-        font-size: 0.88rem;
-        margin-bottom: 10px;
-        line-height: 1.65;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        line-height: 1.6;
     }
 
     .camp__meta {
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin: 16px 0;
+        gap: 6px;
+        margin: 14px 0;
     }
 
     .camp__meta-item {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
+        gap: 6px;
     }
 
     .camp__stamp {
-        font-size: 0.8rem;
-        padding: 6px 14px;
+        font-size: 0.75rem;
+        padding: 5px 12px;
         letter-spacing: 1px;
         border-width: 2px;
     }
@@ -1978,8 +1999,50 @@ a {
         font-size: 0.8rem;
     }
 
+    .work__grid {
+        gap: 8px;
+    }
+
+    .work__card {
+        padding: 14px 12px;
+    }
+
+    .work__title {
+        font-size: 0.85rem;
+    }
+
+    .work__card p {
+        font-size: 0.75rem;
+    }
+
+    .team__grid {
+        gap: 8px;
+    }
+
+    .team__card {
+        padding: 14px 8px;
+    }
+
+    .team__avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 0.8rem;
+    }
+
     .camp__image img {
-        height: 160px;
+        height: 150px;
+    }
+
+    .camp__content h3 {
+        font-size: 0.95rem;
+    }
+
+    .camp__content p {
+        font-size: 0.8rem;
+    }
+
+    .camp__meta {
+        margin: 10px 0;
     }
 
     .content-block__image img {
