@@ -1,4 +1,10 @@
+User-agent: Yandex
+Allow: /
+Host: https://veteranpv-brz.ru
+Crawl-delay: 5
+
 User-agent: *
 Allow: /
+Disallow: /404.html
 
 Sitemap: https://veteranpv-brz.ru/sitemap.xml
