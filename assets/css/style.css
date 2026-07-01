@@ -1681,13 +1681,21 @@ a {
         display: none;
     }
 
-    /* Facts */
+    /* Facts — horizontal scroll вместо сетки */
     .facts__grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         gap: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 4px;
+        grid-template-columns: none;
     }
 
     .facts__card {
+        flex: 0 0 auto;
+        width: 130px;
+        scroll-snap-align: start;
         padding: 14px 10px;
     }
 
@@ -1696,9 +1704,17 @@ a {
     }
 
     .facts__label {
-        font-size: 0.75rem;
+        font-size: 0.72rem;
         word-break: break-word;
         hyphens: auto;
+    }
+
+    .facts__grid::-webkit-scrollbar {
+        height: 3px;
+    }
+    .facts__grid::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
     }
 
     /* Achievements */
@@ -1711,15 +1727,23 @@ a {
         font-size: 0.85rem;
     }
 
-    /* Team */
+    /* Team — horizontal scroll вместо сетки */
     .team__grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         gap: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 4px;
+        grid-template-columns: none;
     }
 
     .team__card {
-        max-width: none;
+        flex: 0 0 auto;
+        width: 120px;
+        scroll-snap-align: start;
         padding: 14px 8px;
+        max-width: none;
     }
 
     .team__avatar {
@@ -1737,6 +1761,14 @@ a {
 
     .team__role {
         font-size: 0.72rem;
+    }
+
+    .team__grid::-webkit-scrollbar {
+        height: 3px;
+    }
+    .team__grid::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
     }
 
     /* Summer camp */
@@ -2013,12 +2045,13 @@ a {
     }
 
     .facts__grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
+        gap: 8px;
+        grid-template-columns: none;
     }
 
     .facts__card {
         padding: 12px 8px;
+        width: 110px;
     }
 
     .facts__number {
@@ -2060,11 +2093,13 @@ a {
     }
 
     .team__grid {
-        gap: 6px;
+        gap: 8px;
+        grid-template-columns: none;
     }
 
     .team__card {
         padding: 12px 6px;
+        width: 105px;
     }
 
     .team__avatar {
